@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Nuevo Empleado
+{% endblock %}
+
+{% block changing %}
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+
+  <table style="margin:10px 0 0 20px; padding: 1.2em;">
+
+    {{ form.as_table }}
+
+  </table>
+  
+  <p style="margin: 10px 0 0 20px;"><input type="submit" value="Crear empleado"></p>
+
+</form>
+  
+{% endblock %}

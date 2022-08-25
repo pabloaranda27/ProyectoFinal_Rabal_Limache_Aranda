@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista de empleados
+{% endblock %}
+
+{% block changing %}
+
+  {% for staff in object_list %}
+
+  <div class="card text-white bg-danger mb-3" style="max-width: 540px; padding: 15px; float: left; margin: 10px 20px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="#" alt="Imagen de staff">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="background-color: rgb(240, 111, 51); color:rgb(70, 3, 3); font-family: Georgia, 'Times New Roman', Times, serif;">
+          <h5 class="card-title" style="text-align: center;">{{staff.last_name}}, {{staff.name}}</h5>
+          <p class="card-text">
+            <p><h6>Sucursal: {{staff.store}}</h6></p> 
+            <p><h6>Puesto: {{staff.position}}</h6></p>
+            <p><h6>Edad: {{staff.age}}</h6></p> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+{% endblock %}
