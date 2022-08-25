@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista de sucursales
+{% endblock %}
+
+{% block changing %}
+
+      {% for store in object_list %}
+
+      <div class="card text-white bg-info mb-3 w-50" style="padding: 15px; margin: 10px 350px;">
+        <img src="#" class="card-img-top" alt="Imagen de sucursales">
+        <div class="card-body" style="text-align: center; background-color: rgb(25, 0, 94); color:rgb(255, 255, 255); font-family: Georgia, 'Times New Roman', Times, serif;">
+        <p class="card-text"><h4><strong><u>Sucursal "{{store.name}}"</u></strong></h4></p>
+          <p><h6>Ciudad: {{store.city}}</h6></p>
+          <p><h6>Direccion: {{store.address}}</h6></p>  
+          <p><h6>Encargardo: {{store.manager}}</h6></p> 
+          <p><h6>Horario: {{store.open_time}} - {{store.close_time}}</h6></p>
+        </div>
+      </div>
+
+      {% endfor %}
+      
+{% endblock %}
