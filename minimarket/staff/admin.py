@@ -1,3 +1,6 @@
 from django.contrib import admin
+from staff.models import Staff
 
-# Register your models here.
+@admin.register(Staff)
+class Staff_admin(admin.ModelAdmin):
+    list_display=['name','position','age']

@@ -1,6 +1,7 @@
 from django.db import models
 
 class Staff(models.Model):
+    image=models.ImageField(upload_to='staff/', null=True, blank=True)
     name=models.CharField(max_length=30)
     last_name=models.CharField(max_length=30)
     position=models.CharField(max_length=30)

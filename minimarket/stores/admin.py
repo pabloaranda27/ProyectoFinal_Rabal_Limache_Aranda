@@ -1,3 +1,6 @@
 from django.contrib import admin
+from stores.models import Stores
 
-# Register your models here.
+@admin.register(Stores)
+class Stores_admin(admin.ModelAdmin):
+    list_display=['name','address','city','manager']
