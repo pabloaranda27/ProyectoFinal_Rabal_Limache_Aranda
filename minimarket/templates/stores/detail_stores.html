@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detalle de Sucursal
+{% endblock %}
+
+{% block changing %}
+
+    <h1>{{ object.name }}</h1>
+    <h2>{{ object.address }}</h2>
+    <h2>{{ object.city }}</h2>
+    <h2>{{ object.open_time }}</h2>
+    <h2>{{ object.close_time }}</h2>
+
+    <a href="/stores/delete-stores/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+    <a href="/stores/update-stores/{{object.id}}/" class="btn btn-primary">Editar</a>
+
+{% endblock %}
