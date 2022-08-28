@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar datos de Empleado
+{% endblock %}
+
+{% block changing %}
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+
+  <table>
+
+    {{ form.as_table }}
+
+  </table>
+  
+  <p><input type="submit" value="Editar Empleado"></p>
+
+</form>
+  
+{% endblock %}

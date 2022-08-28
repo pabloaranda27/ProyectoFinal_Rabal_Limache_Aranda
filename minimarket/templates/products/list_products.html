@@ -8,6 +8,7 @@ Lista de Productos
 
 {% for product in products %}
   <div class="card text-white bg-success mb-3" style="width: 18rem; padding: 15px; float: left; margin: 10px 20px;">
+
     {% if product.image %}
      <img src="{{product.image.url}}" class="card-img-top" alt="Imagen del almacen">
     {% else %}

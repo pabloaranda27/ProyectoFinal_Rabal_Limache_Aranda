@@ -8,8 +8,14 @@ Busqueda de Producto
 
 {% for product in products %}
   <div class="card text-white bg-success mb-3" style="width: 18rem; padding: 15px; float: left; margin: 10px 20px;">
-      <img src="#" class="card-img-top" alt="Imagen del almacen">
-      <div class="card-body" style="background-color: rgb(133, 255, 174); color:rgb(3, 70, 3); font-family: Georgia, 'Times New Roman', Times, serif;">
+     
+    {% if product.image %}
+    <img src="{{product.image.url}}" class="card-img-top" alt="Imagen del almacen">
+   {% else %}
+    <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1" class="card-img-top" alt="...">
+   {% endif %}
+
+    <div class="card-body" style="background-color: rgb(133, 255, 174); color:rgb(3, 70, 3); font-family: Georgia, 'Times New Roman', Times, serif;">
         <p class="card-text" style="text-align: center;"><h5>{{product.name}}</h5></p>
         <p><h6>Precio: $ {{product.price}}</h6></p>
         <p><h6>Stock: {{product.stock}} unidades</h6></p>      

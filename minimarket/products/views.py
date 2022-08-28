@@ -4,7 +4,7 @@ from products.forms import Form_products
 
 def new_product(request):
     if request.method == 'POST':
-        form=Form_products(request.POST)
+        form=Form_products(request.POST, request.FILES)
         if form.is_valid():
             Products.objects.create(
                 name=form.cleaned_data['name'],
