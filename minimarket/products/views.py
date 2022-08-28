@@ -9,9 +9,10 @@ def new_product(request):
             Products.objects.create(
                 name=form.cleaned_data['name'],
                 price=form.cleaned_data['price'],
+                image=form.cleaned_data['image'],
                 description=form.cleaned_data['description'],
                 stock=form.cleaned_data['stock'],
-            )
+                )
             return redirect(list_products)
     elif request.method == 'GET':
         form=Form_products()
