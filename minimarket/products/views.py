@@ -30,17 +30,23 @@ def search_products(request):
     context={'products':products}
     return render (request,'products/search_products.html',context=context)
 
-def delete_prod(request, pk):
+def detail_product(request, pk):
     if request.method == 'GET':
         product=Products.objects.get(pk=pk)
         context={'product':product}
-        return render (request,'products/delete_products.html',context=context)
+        return render (request,'products/detail_product.html',context=context)
+
+def delete_product(request, pk):
+    if request.method == 'GET':
+        product=Products.objects.get(pk=pk)
+        context={'product':product}
+        return render (request,'products/delete_product.html',context=context)
     elif request.method == 'POST':
         product=Products.objects.get(pk=pk)
         product.delete()
         return redirect(list_products)
 
-def update_prod(request, pk):
+def update_product(request, pk):
     if request.method == 'POST':
         form=Form_products(request.POST)
         if form.is_valid():
@@ -60,4 +66,4 @@ def update_prod(request, pk):
             'stock':product.stock,
         })
         context={'form':form}
-        return render (request,'products/update_prod.html',context=context)
+        return render (request,'products/update_product.html',context=context)

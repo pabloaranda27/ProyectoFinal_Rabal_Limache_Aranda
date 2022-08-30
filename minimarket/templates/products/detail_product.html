@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detalle del Producto
+{% endblock %}
+
+{% block changing %}
+
+<div class="card" style="width: 18rem;">
+    {% if product.image %}
+    <img src="{{product.image.url}}" class="card-img-top">
+    {% else %}
+    <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1" class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+        <h3 class="card-title">Detalle del Producto</h5>
+        <p class="card-text"><h4>Producto: {{product.name}}</h4></p>
+        <p>Precio del Producto: {{ product.price }}</p>
+        <p>Descripcion del Producto: {{ product.description }}</p>
+        <p>Disponible: {{ product.is_available }}</p>
+        <p>Fecha de creacion del Producto: {{ product.creation_date }}</p>
+        <p>Stock del Producto: {{ product.stock }}</p>
+        <a href="/products/delete-product/{{product.id}}/" class="btn btn-danger">Eliminar</a>
+        <a href="/products/update-product/{{product.id}}/" class="btn btn-primary">Editar</a>          
+        <a href="/products/list-products/" class="btn btn-primary">Volver</a>
+    </div>
+
+{% endblock %}

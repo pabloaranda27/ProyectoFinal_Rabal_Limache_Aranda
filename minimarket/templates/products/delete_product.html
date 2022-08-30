@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Producto
+{% endblock %}
+
+{% block changing %}
+
+<p>Nombre del Producto: {{ product.name }}</p>
+<p>Descripcion del Producto: {{ product.description }}</p>
+<p>Precio del Producto: {{ product.price }}</p>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    
+        <p><input type="submit" value="Eliminar" class="btn btn-danger">
+    <a href="/products/list-products/" class="btn btn-primary">Volver</a></p>  
+    
+</form>
+
+{% endblock %}

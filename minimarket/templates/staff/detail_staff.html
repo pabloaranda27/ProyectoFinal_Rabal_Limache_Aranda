@@ -6,14 +6,17 @@ Detalle de Empleado
 
 {% block changing %}
 
-    <h1>{{ object.last_name }}, {{ object.name }}</h1>
-    <h2>{{ object.position }}</h2>
-    <h2>{{ object.address }}</h2>
-    <h2>{{ object.store }}</h2>
-    <h2>{{ object.date_of_hired }}</h2>
-    <h2>{{ object.age }}</h2>
+<div style="margin: 20px;">
+    <h2>{{ object.last_name }}, {{ object.name }}</h2>
+    <h3>{{ object.position }}</h3>
+    <h3>{{ object.address }}</h3>
+    <h3>{{ object.store }}</h3>
+    <h3>{{ object.date_of_hired }}</h3>
+    <h3>{{ object.age }}</h3>
 
     <a href="/staff/delete-staff/{{object.id}}/" class="btn btn-danger">Eliminar</a>
     <a href="/staff/update-staff/{{object.id}}/" class="btn btn-primary">Editar</a>
+    <a href="/staff/list-staff/" class="btn btn-primary">Volver</a>
+</div>
 
 {% endblock %}

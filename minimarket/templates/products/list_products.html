@@ -18,7 +18,8 @@ Lista de Productos
      <div class="card-body" style="background-color: rgb(133, 255, 174); color:rgb(3, 70, 3); font-family: Georgia, 'Times New Roman', Times, serif;">
         <p class="card-text" style="text-align: center;"><h5>{{product.name}}</h5></p>
         <p><h6>Precio: $ {{product.price}}</h6></p>
-        <p><h6>Stock: {{product.stock}} unidades</h6></p>      
+        <p><h6>Stock: {{product.stock}} unidades</h6></p>
+        <a href="/products/detail-product/{{product.id}}/" class="btn btn-primary">Detalle</a>
         <a href="#" class="btn btn-primary">Comprar</a>
       </div>
     </div>
