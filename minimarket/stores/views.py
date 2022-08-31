@@ -1,4 +1,3 @@
-from urllib import request
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 from django.shortcuts import render
