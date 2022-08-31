@@ -1,6 +1,7 @@
 from django.db import models
 
 class Stores(models.Model):
+    image=models.ImageField(upload_to='stores/', null=True, blank=True)
     name=models.CharField(max_length=30)
     address=models.CharField(max_length=50)
     city=models.CharField(max_length=50)
