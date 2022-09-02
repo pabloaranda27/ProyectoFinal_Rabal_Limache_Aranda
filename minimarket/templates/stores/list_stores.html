@@ -6,18 +6,18 @@ Lista de sucursales
 
 {% block changing %}
 
-      {% for stores in object_list %}
+      {% for store in object_list %}
 
       <div class="card text-white bg-info mb-3 w-50" style="padding: 15px; margin: 10px 350px;">
-        {% if stores.image %}
-        <img src="{{stores.image.url}}" class="card-img-top" style="width: 150px;" alt="Imagen de Sucursal">
+        {% if store.image %}
+        <img src="{{store.image.url}}" class="card-img-top" style="width: 100%; height: 250px;" alt="Imagen de Sucursal">
         {% endif %}
       <div class="card-body" style="text-align: center; background-color: rgb(25, 0, 94); color:rgb(255, 255, 255); font-family: Georgia, 'Times New Roman', Times, serif;">
-        <p class="card-text"><h4><strong><u>Sucursal "{{stores.name}}"</u></strong></h4></p>
-          <p><h6>Ciudad: {{stores.city}}</h6></p>
-          <p><h6>Direccion: {{stores.address}}</h6></p>  
-          <p><h6>Encargardo: {{stores.manager}}</h6></p> 
-          <p><h6>Horario: {{stores.open_time}} - {{stores.close_time}}</h6>
+        <p class="card-text"><h4><strong><u>Sucursal "{{store.name}}"</u></strong></h4></p>
+          <p><h6>Ciudad: {{store.city}}</h6></p>
+          <p><h6>Direccion: {{store.address}}</h6></p>  
+          <p><h6>Encargardo: {{store.manager}}</h6></p> 
+          <p><h6>Horario: {{store.open_time}} - {{store.close_time}}</h6>
           </p>
             <a href="/stores/detail-stores/{{store.id}}/" class="btn btn-primary">Detalle</a>
         </div>

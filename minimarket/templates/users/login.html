@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inicio de Sesion
+{% endblock %}
+
+{% block changing %}
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+
+  <table>
+
+    {{ form.as_table }}
+
+  </table>
+  
+  <p><input type="submit" value="Iniciar Sesion" class="btn btn-primary"></p>
+
+</form>
+
+  {% if error %}
+  
+    <p style="color:red;">{{error}}</p>
+  
+  {% endif %}
+  
+  {% endblock %}

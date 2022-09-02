@@ -38,6 +38,24 @@
           <li class="nav-item active">
             <a class="nav-link" href="/admin/">Administrador</a>
           </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link">{{user.username}}</a>
+      </li>
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="/users/create-profile/">Profile</a>
+          </li>    -->
+           <li class="nav-item active" style="float: right;">
+              <a class="nav-link" href="/users/logout/">Cerrar sesion</a>
+          </li>
+      {% else %}
+          <li class="nav-item active" style="float: right;">
+              <a class="nav-link" href="/users/login/">Iniciar sesion</a>
+          </li>
+          <li class="nav-item active" style="float: right;">
+              <a class="nav-link" href="/users/register/">Registro</a>
+          </li>
+      {% endif %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
               Crear

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Crear Perfil
+{% endblock %}
+
+{% block changing %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+  {% csrf_token %}
+
+  <table>
+
+    {{ form.as_table }}
+
+  </table>
+  
+  <p><input type="submit" value="Crear" class="btn btn-primary"></p>
+
+</form>
+  
+{% endblock %}
