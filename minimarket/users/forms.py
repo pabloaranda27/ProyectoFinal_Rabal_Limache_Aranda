@@ -5,24 +5,22 @@ from django import forms
 from users.models import User_profile
 
 class User_registration_form(UserCreationForm):
-    email = forms.EmailField(required=True)
+    username=forms.CharField(label='Usuario', max_length=50)
+    first_name=forms.CharField(label='Nombre', max_length=50)
+    last_name=forms.CharField(label='Apellido', max_length=50)
+    email = forms.EmailField(label='Email', required=True)
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirmar Contraseña', widget=forms.PasswordInput)
-
+    
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
-        help_texts = {k:'' for k in fields}
-
-class User_profile_form(forms.Form):
+class Profile_update_form(forms.Form):
     image=forms.ImageField()
-    name=forms.CharField(max_length=50)
-    last_name=forms.CharField(max_length=50)
-    age=forms.IntegerField()
     phone=forms.CharField(max_length=20)
     address=forms.CharField(max_length=200)
 
     class Meta:
         model = User_profile
-        fields = ('image', 'name', 'last_name', 'age', 'phone', 'address')
+        fields = ('image', 'phone', 'address')

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Perfil
+{% endblock %}
+
+{% block changing %}
+
+<div class="card" style="width: 18rem;">
+  {% if user.profile.image %}
+  <img src="{{user.profile.image.url}}" class="card-img-top">
+  {% endif %}
+  <div class="card-body">
+      <h3 class="card-title">Perfil</h5>
+      <p class="card-text"><h4>Perfil de: {{user.username}}</h4></p>
+      <p>Telefono: {{ user.profile.phone }}</p>
+      <p>Direccion: {{ user.profile.address }}</p>
+  </div>
+
+  <a href="/users/update-profile/{{user.username}}/" class="btn btn-primary">Editar</a>
+
+{% endblock %}

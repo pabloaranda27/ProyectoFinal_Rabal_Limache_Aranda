@@ -6,23 +6,34 @@ Detalle del Producto
 
 {% block changing %}
 
-<div class="card" style="width: 18rem;">
+<div style="margin: 40px 0 0 40px;">
     {% if product.image %}
-    <img src="{{product.image.url}}" class="card-img-top">
+    <img src="{{product.image.url}}" style="width:350px; height: 350px; float: left;" alt="Imagen del producto">
     {% else %}
-    <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1" class="card-img-top" alt="...">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/SUPERMERCADO_LIDER_QUILICURA.jpg" style="width: 350px; height: 350px; float: left;" alt="Imagen del almacen">
     {% endif %}
-    <div class="card-body">
-        <h3 class="card-title">Detalle del Producto</h5>
-        <p class="card-text"><h4>Producto: {{product.name}}</h4></p>
-        <p>Precio del Producto: {{ product.price }}</p>
-        <p>Descripcion del Producto: {{ product.description }}</p>
-        <p>Disponible: {{ product.is_available }}</p>
-        <p>Fecha de creacion del Producto: {{ product.creation_date }}</p>
-        <p>Stock del Producto: {{ product.stock }}</p>
+
+    <div style="margin-left: 400px;">
+
+        <h2>Detalles del Producto: "{{product.name}}"</h2><br>
+
+        <ul>
+        <li><h3>Precio: {{ product.price }}</h3></li>
+        <li><h3>Descripcion: {{ product.description }}</h3></li>
+        <li><h3>Disponibilidad: {{ product.is_available }}</h3></li>
+        <li><h3>Fecha de creacion: {{ product.creation_date }}</h3></li>
+        <li><h3>Stock: {{ product.stock }}</h3></li>
+        </ul><br>
+        
+        <div style="padding: 0 40px;">
+        {% if request.user.is_authenticated and request.user.is_superuser %}
         <a href="/products/delete-product/{{product.id}}/" class="btn btn-danger">Eliminar</a>
-        <a href="/products/update-product/{{product.id}}/" class="btn btn-primary">Editar</a>          
-        <a href="/products/list-products/" class="btn btn-primary">Volver</a>
+        <a href="/products/update-product/{{product.id}}/" class="btn btn-success" style="margin-left:15px;">Editar</a>          
+        {% endif %}
+        <a href="/products/list-products/" class="btn btn-primary" style="margin-left:15px;">Volver</a>
+        </div>
+
     </div>
+</div>
 
 {% endblock %}

@@ -6,14 +6,33 @@ Detalle de Sucursal
 
 {% block changing %}
 
-    <h1>{{ object.name }}</h1>
-    <h2>{{ object.address }}</h2>
-    <h2>{{ object.city }}</h2>
-    <h2>{{ object.open_time }}</h2>
-    <h2>{{ object.close_time }}</h2>
+<div style="margin: 40px 0 0 40px;">
+    {% if store.image %}
+    <img src="{{store.image.url}}" style="width:350px; height: 350px; float: left;" alt="Imagen de la sucursal">
+    {% else %}
+    <img src="#" style="width: 350px; height: 350px; float: left;" alt="Imagen de la sucursal">
+    {% endif %}
 
-    <a href="/stores/delete-stores/{{object.id}}/" class="btn btn-danger">Eliminar</a>
-    <a href="/stores/update-stores/{{object.id}}/" class="btn btn-primary">Editar</a>
-    <a href="/stores/list-stores/" class="btn btn-primary">Volver</a>
+    <div style="margin-left: 400px;">
+
+        <h2><u>Nombre: "{{ object.name }}"</u></h2><br>
+
+        <ul>
+        <li><h3>Direccion: {{ object.address }}</h3></li>
+        <li><h3>Ciudad: {{ object.city }}</h3></li>
+        <li><h3>Horario de apertura: {{ object.open_time }}</h3></li>
+        <li><h3>Horario de cierre: {{ object.close_time }}</h3></li>
+        </ul><br>
+
+        <div style="padding: 0 40px;">
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        <a href="/stores/delete-stores/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+        <a href="/stores/update-stores/{{object.id}}/" class="btn btn-success" style="margin-left:15px;">Editar</a>
+        {% endif %}        
+        <a href="/stores/list-stores/" class="btn btn-primary" style="margin-left:15px;">Volver</a>
+        </div>
+
+    </div>
+</div>
 
 {% endblock %}

@@ -1,23 +1,27 @@
 from django.shortcuts import render, redirect
 from products.models import Products
 from products.forms import Form_products
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def new_product(request):
-    if request.method == 'POST':
-        form=Form_products(request.POST, request.FILES)
-        if form.is_valid():
-            Products.objects.create(
-                name=form.cleaned_data['name'],
-                price=form.cleaned_data['price'],
-                image=form.cleaned_data['image'],
-                description=form.cleaned_data['description'],
-                stock=form.cleaned_data['stock'],
-                )
-            return redirect(list_products)
-    elif request.method == 'GET':
-        form=Form_products()
-        context={'form':form}
-        return render (request,'products/new_product.html',context=context)
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form=Form_products(request.POST, request.FILES)
+            if form.is_valid():
+                Products.objects.create(
+                    name=form.cleaned_data['name'],
+                    price=form.cleaned_data['price'],
+                    image=form.cleaned_data['image'],
+                    description=form.cleaned_data['description'],
+                    stock=form.cleaned_data['stock'],
+                    )
+                return redirect(list_products)
+        elif request.method == 'GET':
+            form=Form_products()
+            context={'form':form}
+            return render (request,'products/new_product.html',context=context)
+    return redirect('login')
 
 def list_products(request):
     products=Products.objects.all()
@@ -36,34 +40,40 @@ def detail_product(request, pk):
         context={'product':product}
         return render (request,'products/detail_product.html',context=context)
 
+@login_required
 def delete_product(request, pk):
-    if request.method == 'GET':
-        product=Products.objects.get(pk=pk)
-        context={'product':product}
-        return render (request,'products/delete_product.html',context=context)
-    elif request.method == 'POST':
-        product=Products.objects.get(pk=pk)
-        product.delete()
-        return redirect(list_products)
-
-def update_product(request, pk):
-    if request.method == 'POST':
-        form=Form_products(request.POST)
-        if form.is_valid():
+    if request.user.is_superuser:
+        if request.method == 'GET':
             product=Products.objects.get(pk=pk)
-            product.name=form.cleaned_data['name']
-            product.price=form.cleaned_data['price']
-            product.description=form.cleaned_data['description']
-            product.stock=form.cleaned_data['stock']
-            product.save()
+            context={'product':product}
+            return render (request,'products/delete_product.html',context=context)
+        elif request.method == 'POST':
+            product=Products.objects.get(pk=pk)
+            product.delete()
             return redirect(list_products)
-    elif request.method == 'GET':
-        product=Products.objects.get(id=pk)
-        form=Form_products(initial={
-            'name':product.name,
-            'price':product.price,
-            'description':product.description,
-            'stock':product.stock,
-        })
-        context={'form':form}
-        return render (request,'products/update_product.html',context=context)
+    return redirect('login')
+
+@login_required
+def update_product(request, pk):
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form=Form_products(request.POST)
+            if form.is_valid():
+                product=Products.objects.get(pk=pk)
+                product.name=form.cleaned_data['name']
+                product.price=form.cleaned_data['price']
+                product.description=form.cleaned_data['description']
+                product.stock=form.cleaned_data['stock']
+                product.save()
+                return redirect(list_products)
+        elif request.method == 'GET':
+            product=Products.objects.get(id=pk)
+            form=Form_products(initial={
+                'name':product.name,
+                'price':product.price,
+                'description':product.description,
+                'stock':product.stock,
+            })
+            context={'form':form}
+            return render (request,'products/update_product.html',context=context)
+    return redirect('login')

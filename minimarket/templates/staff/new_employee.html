@@ -10,14 +10,14 @@ Nuevo Empleado
 
   {% csrf_token %}
 
-  <table style="margin:10px 0 0 20px; padding: 1.2em;">
+  <table style="margin:20px 0 0 20px; width: 50%;" class="table table-striped table-primary">
 
     {{ form.as_table }}
 
   </table>
-  
-  <p style="margin: 10px 0 0 20px;"><input type="submit" value="Crear empleado"></p>
 
+  <p style="margin: 10px 0 0 20px;"><input type="submit" value="Crear empleado" class="btn btn-primary"></p>
+  
 </form>
   
 {% endblock %}

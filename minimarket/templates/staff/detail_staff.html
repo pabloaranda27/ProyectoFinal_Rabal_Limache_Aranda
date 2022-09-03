@@ -6,17 +6,34 @@ Detalle de Empleado
 
 {% block changing %}
 
-<div style="margin: 20px;">
-    <h2>{{ object.last_name }}, {{ object.name }}</h2>
-    <h3>{{ object.position }}</h3>
-    <h3>{{ object.address }}</h3>
-    <h3>{{ object.store }}</h3>
-    <h3>{{ object.date_of_hired }}</h3>
-    <h3>{{ object.age }}</h3>
+<div style="margin: 40px 0 0 40px;">
+    {% if staff.image %}
+    <img src="{{staff.image.url}}" style="width:350px; height: 350px; float: left;" alt="Imagen del empleado">
+    {% else %}
+    <img src="#" style="width: 350px; height: 350px; float: left;" alt="Imagen del empleado">
+    {% endif %}
 
-    <a href="/staff/delete-staff/{{object.id}}/" class="btn btn-danger">Eliminar</a>
-    <a href="/staff/update-staff/{{object.id}}/" class="btn btn-primary">Editar</a>
-    <a href="/staff/list-staff/" class="btn btn-primary">Volver</a>
+    <div style="margin-left: 400px;">
+   
+        <h2><b>{{ object.last_name }}, {{ object.name }}</b></h2><br>
+    
+        <ul>
+        <li><h3>Puesto: {{ object.position }}</h3></li>
+        <li><h3>Direccion: {{ object.address }}</h3></li>
+        <li><h3>Sucursal: {{ object.store }}</h3></li>
+        <li><h3>Fecha de contratacion: {{ object.date_of_hired }}</h3></li>
+        <li><h3>Edad: {{ object.age }} años</h3></li>
+        </ul><br>
+
+        <div style="padding: 0 40px;">
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        <a href="/staff/delete-staff/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+        <a href="/staff/update-staff/{{object.id}}/" class="btn btn-success" style="margin-left:15px;">Editar</a>
+        {% endif %}
+        <a href="/staff/list-staff/" class="btn btn-primary" style="margin-left:15px;">Volver</a>
+        </div>
+
+    </div>
 </div>
 
 {% endblock %}

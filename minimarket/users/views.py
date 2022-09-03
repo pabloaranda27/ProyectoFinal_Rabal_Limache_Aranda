@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
-from users.forms import User_registration_form, User_profile_form
+from django.contrib.auth.models import User
+
+from users.forms import User_registration_form, Profile_update_form
 from users.models import User_profile
-from products.views import list_products
 
 def login_request(request):
     if request.method == 'POST':
@@ -27,7 +28,8 @@ def register(request):
     if request.method == 'POST':
         form = User_registration_form(request.POST)
         if form.is_valid():
-            form.save()
+            user=form.save()
+            User_profile.objects.create(user=user)
             return redirect('login')
         else:
             context = {'error':form.errors}
@@ -39,25 +41,26 @@ def register(request):
         form = User_registration_form()
         return render(request, 'users/register.html', {'form': form})
 
-# def profile(request, pk):
-#     profile=User_profile.objects.get(pk=pk)
-#     context={'profile':profile}
-#     return render (request,'users/profile.html',context=context)
+def show_profile(request, username):
+    user=User.objects.get(username=username)
+    return render(request, 'users/show_profile.html', {'user':user})
 
-def create_profile(request):
+def update_profile(request, username):
+    user_id=request.user.id
+    profile=User_profile.objects.get(user_id=user_id)
+    user_basic_info=User.objects.get(id=user_id)
     if request.method == 'POST':
-        form=User_profile_form(request.POST, request.FILES)
+        form=Profile_update_form(request.POST, request.FILES)
         if form.is_valid():
-            User_profile.objects.create(
-                image=form.cleaned_data['image'],
-                name=form.cleaned_data['name'],
-                last_name=form.cleaned_data['last_name'],
-                age=form.cleaned_data['age'],                
-                phone=form.cleaned_data['phone'],
-                address=form.cleaned_data['address'],
-                )
-            return redirect(list_products)
+
+            profile.image=form.cleaned_data.get('image')
+            profile.phone=form.cleaned_data.get('phone')
+            profile.address=form.cleaned_data.get('address')
+            
+            profile.save()
+            return redirect(show_profile, username=request.user.username)
+
     elif request.method == 'GET':
-        form=User_profile_form()
+        form=Profile_update_form()
         context={'form':form}
-        return render (request,'users/create_profile.html',context=context)
+        return render (request,'users/update_profile.html',context=context)
