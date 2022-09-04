@@ -15,10 +15,13 @@ Mi Perfil
   <div class="card-body">
   <table class="table table-striped table-dark">
     <tr><th scope="col">@{{user.username}}</th></tr>
+    <tr><td>Nombre: {{ user.first_name }}</td></tr>
+    <tr><td>Apellido: {{ user.last_name }}</td></tr>
     <tr><td>Telefono: {{ user.profile.phone }}</td></tr>
     <tr><td>Link: {{ user.profile.link }}</td></tr>
     <tr><td>Descripcion: {{ user.profile.description }}</td></tr>
     <tr><td>Direccion: {{ user.profile.address }}</td></tr>
+    <tr><td>Email: {{ user.email }}</td></tr>
   </table>
   </div>
 </div>

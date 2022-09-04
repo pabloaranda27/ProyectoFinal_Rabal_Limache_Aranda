@@ -54,6 +54,9 @@ def update_profile(request, username):
     if request.method == 'POST':
         form=Profile_update_form(request.POST, request.FILES)
         if form.is_valid():
+            user_basic_info.email=form.cleaned_data.get('email')
+            user_basic_info.first_name=form.cleaned_data.get('first_name')
+            user_basic_info.last_name=form.cleaned_data.get('last_name')
 
             profile.image=form.cleaned_data.get('image')
             profile.phone=form.cleaned_data.get('phone')
@@ -61,6 +64,7 @@ def update_profile(request, username):
             profile.description=form.cleaned_data.get('description')
             profile.address=form.cleaned_data.get('address')
             
+            user_basic_info.save()
             profile.save()
             return redirect(show_profile, username=request.user.username)
 

@@ -1,3 +1,4 @@
+import email
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -17,13 +18,15 @@ class User_registration_form(UserCreationForm):
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 class Profile_update_form(forms.Form):
+    first_name=forms.CharField(max_length=50)
+    last_name=forms.CharField(max_length=50)
     image=forms.ImageField()
     phone=forms.CharField(max_length=20)
     link=forms.URLField()
     description=forms.CharField(max_length=300, widget=forms.Textarea)
     address=forms.CharField(max_length=200)
-# falta email, contraseña y nombre
+    email=forms.EmailField()    
 
     class Meta:
         model = User_profile
-        fields = ('image', 'phone', 'link', 'description', 'address')
+        fields = ('image','first_name','last_name', 'phone', 'link', 'description', 'address', 'email')
