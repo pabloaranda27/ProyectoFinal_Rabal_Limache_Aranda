@@ -18,7 +18,7 @@ En esta seccion del sitio se puede observar un mensaje de bienvenida a los usuar
 ### Productos:
 
 - Usuario comun: En este boton se puede acceder a una lista de los articulos en venta del almacen, el precio y el stock de los mismos. En esta pagina, cada producto presenta dos botones:
--- Detalle: Accede al detalle del producto (todos los campos)
+  - Detalle: Accede al detalle del producto (todos los campos)
 -- Comprar: Conduce a una pagina en construccion
 
 - Administrador: Ademas de lo que hace un usuario comun, puede acceder a los siguientes botones:
