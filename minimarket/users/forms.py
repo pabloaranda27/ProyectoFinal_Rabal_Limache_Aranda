@@ -25,7 +25,7 @@ class Profile_update_form(forms.Form):
     link=forms.URLField()
     description=forms.CharField(max_length=300, widget=forms.Textarea)
     address=forms.CharField(max_length=200)
-    email=forms.EmailField()    
+    email=forms.EmailField()
 
     class Meta:
         model = User_profile
