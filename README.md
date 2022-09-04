@@ -5,11 +5,16 @@
 #### Limache, Pablo
 #### Rabal, Pablo
 ---
+## Modalidad de trabajo:
+
+Para el presente trabajo se opto en una modalidad, donde solo uno de nosotros realizaba el codigo, compartiendo pantalla, a traves de la plataforma de meet, mientras los tres aportabamos lo necesario para la creacion del sitio web, buscabamos los errores, a medida iban surgiendo, y tomabamos las decisiones.
+Esta modalidad nos permitio evitar conflictos a la hora de trabajar con github, debido a la condicion de principiante de los tres integrantes, evitando la division en ramas (dada su conplejidad) y trabajando en una sola rama principal. Esta modalidad nos permitio encontrar los errores de forma mas rapida, ya que eramos tres personas las que observabamos el mismo codigo, haciendo que estos se volvieran mas evidentes.
+
+## Funcionalidades:
+
 Nota: En esta oportunidad decidimos omitir la modificacion de contraseña en el sitio web, debido a multiples errores.
 
 Aclaracion: Todas las paginas cuentan con: navbar que da la posibilidad de desplazarse a otras páginas a través de su uso, y footer, donde se encuentra el boton de acceso a la seccion "Acerca de Nosotros"
-
-## Funcionalidades:
 
 ### Inicio:
 
