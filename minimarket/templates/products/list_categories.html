@@ -8,14 +8,14 @@ Categorias
 
 {% for category in categories %}
 
-<div class="card bg-dark text-white">
+<div class="card bg-dark text-white" style="margin: 50px 200px;">
     {% if category.image %}
      <img src="{{category.image.url}}" class="card-img" alt="Imagen de la Categoria">
     {% else %}
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUOCAty8q8fU6n2R-lhcMIjLnpd8wLSGiPBtAaZ_Pa_PUiDtXs2VON3yRz4CVmbL2fhEQ&usqp=CAU" class="card-img" alt="Imagen de la Categoria">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUOCAty8q8fU6n2R-lhcMIjLnpd8wLSGiPBtAaZ_Pa_PUiDtXs2VON3yRz4CVmbL2fhEQ&usqp=CAU" class="card-img" style="width: 100%; height: 500px;" alt="Imagen de la Categoria">
     {% endif %}
     <div class="card-img-overlay">
-      <h4 class="card-title">{{ category.name }}</h4>
+      <p class="card-title" style="border-radius: 20px; background-color: rgb(4, 142, 4); font-weight: bold; font-size: 60px; padding-left: 40px; font-style: italic;">{{ category.name }}</p>
     </div>
   </div>
 

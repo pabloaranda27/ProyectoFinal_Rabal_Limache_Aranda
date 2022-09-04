@@ -16,17 +16,20 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(5, 105, 5) ;">
-    <a class="navbar-brand" href="#">Minimarket</a>
+    <a class="navbar-brand" href="#"><i>Minimarket</i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+          <li class="nav-item active">
+              <a class="nav-link" href="/">Inicio</a>
+          </li>
+          <li class="nav-item active">
                 <a class="nav-link" href="/products/list-products/">Productos</a>
-            </li>    
-            <li class="nav-item active">
+          </li>    
+          <li class="nav-item active">
             <a class="nav-link" href="/products/list-categories/">Categorias</a>
           </li>
           <li class="nav-item active">
@@ -97,7 +100,7 @@
 
     {% endblock %}
 
-  <footer class="bg-light text-center text-lg-start" style="margin-top: 600px;">
+      <footer class="bg-light text-center text-lg-start" style="bottom: 0; width: 100%; margin-top: 600px;">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="nav-link" href="/about/">Acerca de Nosotros</a>

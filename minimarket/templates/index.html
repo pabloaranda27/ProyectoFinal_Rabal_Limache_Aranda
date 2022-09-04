@@ -6,11 +6,19 @@ Home
 
 {% block changing %}
 
-<br><br><br><h1 style="text-align: center; font:bold; color: green;">Minimarket</h1>
-<h3 style="text-align: center; font:bold; color: black;">
-<br><br><p>Usted se encuentra en el Home de la pagina web de nuestra cadena de supermercados.</p>
-<br><p>Proximamente en esta seccion se describira brevemente de que trata la web.</p>
-<br><p>Gracias por ingresar!</p>
+{% if message %}
+
+<div class="alert alert-success" role="alert" style="margin:40px; padding-left:20px;">
+    <h3>{{message}}</h3>
+  </div>
+
+{% endif %}
+
+<img src="..\media\imagen_2 (4).jpg" style="width:350px; height: 350px; float: left; margin-left: 100px;" alt="Logo">
+<h3 style="text-align: center; font:bold; color: rgb(4, 59, 9);">
+<br><br><p>Bienvenido a Minimarket !!!</p>
+<br><p>El mejor minimercado de tu barrio!</p>
+<br><p>VENI, te esperamos!</p>
 </h3>
 
 {% endblock %}
