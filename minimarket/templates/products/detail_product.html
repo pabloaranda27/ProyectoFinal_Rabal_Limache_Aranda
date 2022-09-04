@@ -10,7 +10,7 @@ Detalle del Producto
     {% if product.image %}
     <img src="{{product.image.url}}" style="width:350px; height: 350px; float: left;" alt="Imagen del producto">
     {% else %}
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/SUPERMERCADO_LIDER_QUILICURA.jpg" style="width: 350px; height: 350px; float: left;" alt="Imagen del almacen">
+    <img src="https://dcom-prod.imgix.net/files/wp-content/uploads/2017/01/1484240614-11-Trucos-psicolo%CC%81gicos-del-negocio-de-supermercados.jpg?w=1280&h=720&crop=focalpoint&fp-x=0.5&fp-y=0.1&fit=crop&auto=compress&q=75" style="width: 350px; height: 350px; float: left;" alt="Imagen del almacen">
     {% endif %}
 
     <div style="margin-left: 400px;">
@@ -23,6 +23,7 @@ Detalle del Producto
         <li><h3>Disponibilidad: {{ product.is_available }}</h3></li>
         <li><h3>Fecha de creacion: {{ product.creation_date }}</h3></li>
         <li><h3>Stock: {{ product.stock }}</h3></li>
+        <li><h3>Categoria: {{ product.category }}</h3></li>
         </ul><br>
         
         <div style="padding: 0 40px;">

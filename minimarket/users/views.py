@@ -55,6 +55,8 @@ def update_profile(request, username):
 
             profile.image=form.cleaned_data.get('image')
             profile.phone=form.cleaned_data.get('phone')
+            profile.link=form.cleaned_data.get('link')
+            profile.description=form.cleaned_data.get('description')
             profile.address=form.cleaned_data.get('address')
             
             profile.save()

@@ -10,7 +10,7 @@ Detalle de Sucursal
     {% if store.image %}
     <img src="{{store.image.url}}" style="width:350px; height: 350px; float: left;" alt="Imagen de la sucursal">
     {% else %}
-    <img src="#" style="width: 350px; height: 350px; float: left;" alt="Imagen de la sucursal">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/SUPERMERCADO_LIDER_QUILICURA.jpg" style="width: 350px; height: 350px; float: left;" alt="Imagen de la sucursal">
     {% endif %}
 
     <div style="margin-left: 400px;">
@@ -20,6 +20,7 @@ Detalle de Sucursal
         <ul>
         <li><h3>Direccion: {{ object.address }}</h3></li>
         <li><h3>Ciudad: {{ object.city }}</h3></li>
+        <li><h3>Gerente: {{ object.manager }}</h3></li>
         <li><h3>Horario de apertura: {{ object.open_time }}</h3></li>
         <li><h3>Horario de cierre: {{ object.close_time }}</h3></li>
         </ul><br>

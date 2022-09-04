@@ -12,7 +12,7 @@ Lista de Productos
     {% if product.image %}
      <img src="{{product.image.url}}" class="card-img-top" style="width: 100%; height: 200px;">
     {% else %}
-     <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/SUPERMERCADO_LIDER_QUILICURA.jpg" class="card-img-top" style="width: 100%; height: 200px;" alt="Imagen del almacen">
+     <img src="https://dcom-prod.imgix.net/files/wp-content/uploads/2017/01/1484240614-11-Trucos-psicolo%CC%81gicos-del-negocio-de-supermercados.jpg?w=1280&h=720&crop=focalpoint&fp-x=0.5&fp-y=0.1&fit=crop&auto=compress&q=75" class="card-img-top" style="width: 100%; height: 200px;" alt="Imagen del almacen">
     {% endif %}
 
      <div class="card-body" style="background-color: rgb(107, 246, 153); color:rgb(1, 98, 1); font-family: Georgia, 'Times New Roman', Times, serif;">
@@ -20,7 +20,7 @@ Lista de Productos
         <p><h6>Precio: $ {{product.price}}</h6></p>
         <p><h6>Stock: {{product.stock}} unidades</h6></p>
         <a href="/products/detail-product/{{product.id}}/" class="btn btn-primary">Detalle</a>
-        <a href="#" class="btn btn-primary">Comprar</a>
+        <a href="/working-page/" class="btn btn-primary">Comprar</a>
       </div>
     </div>
 

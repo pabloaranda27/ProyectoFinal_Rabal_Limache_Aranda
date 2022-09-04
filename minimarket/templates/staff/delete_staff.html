@@ -6,14 +6,15 @@ Eliminar Empleado
 
 {% block changing %}
 
-<h2>Empleado: {{ object.last_name }}, {{ object.name }}</h2>
-<p>¿Está seguro que desea eliminar este empleado?</p>
+<div class="alert alert-danger" role="alert" style="margin:40px; padding-left:20px;">
+    <h3>¿Esta seguro de que desea eliminar al empleado: {{ object.last_name }}, {{ object.name }}</h3>
+  </div>
 
 <form action="" method="POST">
 
     {% csrf_token %}
     
-        <p><input type="submit" value="Eliminar Empleado" class="btn btn-danger">
+        <p style="margin: 10px 0 0 20px;"><input type="submit" value="Eliminar Empleado" class="btn btn-danger">
         <a href="/staff/list-staff/" class="btn btn-primary">Volver</a>
         </p>
 

@@ -6,15 +6,15 @@ Eliminar Producto
 
 {% block changing %}
 
-<p>Nombre del Producto: {{ product.name }}</p>
-<p>Descripcion del Producto: {{ product.description }}</p>
-<p>Precio del Producto: {{ product.price }}</p>
+<div class="alert alert-danger" role="alert" style="margin:40px; padding-left:20px;">
+    <h3>¿Esta seguro de que desea eliminar al producto: {{ product.name }}, de precio: $ {{ product.price }}, con {{ product.stock }} unidades?</h3>
+  </div>
 
 <form action="" method="POST">
 
     {% csrf_token %}
     
-    <p><input type="submit" value="Eliminar" class="btn btn-danger">
+    <p style="margin: 10px 0 0 20px;"><input type="submit" value="Eliminar Producto" class="btn btn-danger">
     <a href="/products/list-products/" class="btn btn-primary">Volver</a></p>  
     
 </form>

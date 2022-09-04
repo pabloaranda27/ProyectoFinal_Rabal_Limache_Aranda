@@ -6,14 +6,15 @@ Eliminar Sucursal
 
 {% block changing %}
 
-<h2>Sucursal: {{ object.name }}</h2>
-<p>¿Está seguro que desea eliminar esta sucursal?</p>
+<div class="alert alert-danger" role="alert" style="margin:40px; padding-left:20px;">
+    <h3>¿Esta seguro de que desea eliminar la sucursal: "{{ object.name }}"</h3>
+  </div>
 
 <form action="" method="POST">
 
     {% csrf_token %}
     
-        <p><input type="submit" value="Eliminar Sucursal" class="btn btn-danger">
+        <p style="margin: 10px 0 0 20px;"><input type="submit" value="Eliminar Sucursal" class="btn btn-danger">
         <a href="/stores/list-stores/" class="btn btn-primary">Volver</a></p>
 </form>
 

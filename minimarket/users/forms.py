@@ -19,8 +19,11 @@ class User_registration_form(UserCreationForm):
 class Profile_update_form(forms.Form):
     image=forms.ImageField()
     phone=forms.CharField(max_length=20)
+    link=forms.URLField()
+    description=forms.CharField(max_length=300, widget=forms.Textarea)
     address=forms.CharField(max_length=200)
+# falta email, contraseña y nombre
 
     class Meta:
         model = User_profile
-        fields = ('image', 'phone', 'address')
+        fields = ('image', 'phone', 'link', 'description', 'address')

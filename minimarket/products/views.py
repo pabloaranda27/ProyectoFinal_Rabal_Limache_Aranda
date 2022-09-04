@@ -1,6 +1,7 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
-from products.models import Products
-from products.forms import Form_products
+from products.models import Products, Categories
+from products.forms import Form_products, Form_categories
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -15,6 +16,7 @@ def new_product(request):
                     image=form.cleaned_data['image'],
                     description=form.cleaned_data['description'],
                     stock=form.cleaned_data['stock'],
+                    category=form.cleaned_data['category'],
                     )
                 return redirect(list_products)
         elif request.method == 'GET':
@@ -64,6 +66,7 @@ def update_product(request, pk):
                 product.price=form.cleaned_data['price']
                 product.description=form.cleaned_data['description']
                 product.stock=form.cleaned_data['stock']
+                product.category=form.cleaned_data['category']
                 product.save()
                 return redirect(list_products)
         elif request.method == 'GET':
@@ -73,7 +76,30 @@ def update_product(request, pk):
                 'price':product.price,
                 'description':product.description,
                 'stock':product.stock,
+                'category':product.category,
             })
             context={'form':form}
             return render (request,'products/update_product.html',context=context)
     return redirect('login')
+
+@login_required
+def new_category(request):
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form=Form_categories(request.POST, request.FILES)
+            if form.is_valid():
+                Categories.objects.create(
+                    name=form.cleaned_data['name'],
+                    image=form.cleaned_data['image'],
+                    )
+                return redirect(list_categories)
+        elif request.method == 'GET':
+            form=Form_categories()
+            context={'form':form}
+            return render (request,'products/new_category.html',context=context)
+    return redirect('login')
+
+def list_categories(request):
+    categories=Categories.objects.all()
+    context={'categories':categories}
+    return render (request,'products/list_categories.html',context=context)
