@@ -8,7 +8,10 @@
 ## Modalidad de trabajo:
 
 Para el presente trabajo se opto en una modalidad, donde solo uno de nosotros realizaba el codigo, compartiendo pantalla, a traves de la plataforma de meet, mientras los tres aportabamos lo necesario para la creacion del sitio web, buscabamos los errores, a medida iban surgiendo, y tomabamos las decisiones.
+
 Esta modalidad nos permitio evitar conflictos a la hora de trabajar con github, debido a la condicion de principiante de los tres integrantes, evitando la division en ramas (dada su conplejidad) y trabajando en una sola rama principal. Esta modalidad nos permitio encontrar los errores de forma mas rapida, ya que eramos tres personas las que observabamos el mismo codigo, haciendo que estos se volvieran mas evidentes.
+
+Aclaracion: El grupo decidio no presentar un video debido al caracter opcional del mismo, no contar con el tiempo y conocimientos suficientes y la decision de priorizar el trabajo en el sitio web
 
 ## Funcionalidades:
 
