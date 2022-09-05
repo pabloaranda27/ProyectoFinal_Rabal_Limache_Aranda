@@ -30,8 +30,6 @@ def register(request):
         if form.is_valid():
             user=form.save()
             User_profile.objects.create(user=user)
-            # context = {'message':'Usted se ha registrado con exito!'}
-            # return redirect('login', context=context)
             return redirect('login')
         else:
             context = {'error':form.errors}
